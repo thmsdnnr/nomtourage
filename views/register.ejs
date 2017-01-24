@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>REGISTER YOUR ENTOURAGE</title>
+  <script>window.INITIAL_STATE = <%-JSON.stringify(data)%>;</script>
+  <link rel="stylesheet" type="text/css" href="/assets/css/styling.css">
+</head>
+<body>
+  <div id="container">
+    <div id="form">
+      <h1>REGISTER YOUR ENTOURAGE</h1>
+      <%if(data.warning===true){%><span id="warning">Invalid. Try again.</span><%}%>
+<form action="/register" method="post">
+  <input type="text" placeholder="Username" name="username" autofocus required /><br />
+  <input type="password" placeholder="Password" name="password" required /><br />
+  <input type="submit"><button id="submit">JOIN US</button></input>
+</form>
+  <a href="/login">log in</a></div>
+</div>
+</body>
+</html>

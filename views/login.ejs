@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>LOGIN TO ENTOURAGE</title>
+  <script>window.INITIAL_STATE = <%-JSON.stringify(data)%>;</script>
+<link rel="stylesheet" type="text/css" href="/assets/css/styling.css">
+</head>
+<body>
+  <div id="container">
+    <div id="form">
+      <h1>ENTOURAGE<div id="sprite">
+          <img src="/assets/images/E.svg" width="200" height="200" id="candle">
+        </div></h1>
+      <form action="/login" method="post">
+        <input type="text" placeholder="Username" name="username" autofocus required /><br />
+        <input type="password" placeholder="Password" name="password" required /><br />
+        <%if(data.warning===true){%><span id="warning">Invalid. Try again.</span><%}%><br />
+        <input type="submit"><button id="submit">COME IN</button></input>
+      </form>
+      <a href="/register">register</a><br />
+    </div>
+  </div>
+</body>
+</html>

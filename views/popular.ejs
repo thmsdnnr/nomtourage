@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>HOT SPOTS TONIGHT</title>
+  <script>window.INITIAL_STATE = <%-JSON.stringify(data)%>;</script>
+  <script type="text/javascript" src="/assets/js/barList.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/css/list.css">
+</head>
+<body>
+  <h1>ENTOURAGE</h1>
+  <% include ../static/assets/includes/nav.ejs %>
+  <div id="container">
+  <table id="bars">
+    <thead>
+      <tr>
+      <td><span class="header" data-title="# Going" id="visitorCt">People Going</span></td>
+      <td id="chosen"><span class="header" data-title="count me in" id="chosen">count me in</td>
+      <td id="nameDesc" colspan="3">NAME/DESCRIPTION</td>
+      <td><span class="header" data-title="Rating" id="rating">Rating</span></td>
+      <td id="distance"><span class="header" data-title="How Far? (km)" id="distance">How Far? (km)</td></tr>
+    </thead>
+    <tbody>
+  </tbody>
+</table></div>
+<% include ../static/assets/includes/footer.ejs %>
+</body>
+</html>

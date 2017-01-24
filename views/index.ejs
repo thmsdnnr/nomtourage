@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>SEARCH FOR BARS</title>
+  <script>window.INITIAL_STATE = <%-JSON.stringify(data)%>;</script>
+  <script type="text/javascript" src="/assets/js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/css/styling.css">
+</head>
+<body>
+  <% include ../static/assets/includes/nav.ejs %>
+  <div id="form">
+    <h1>ENTOURAGE</h1>
+    <form method="POST" action="/s" id="nomSearch">
+      <input type="text" name="bars" placeholder="What kind of place?" required><br />
+      <input type="number" name="distance" placeholder="How far away? (km)" optional><br />
+      <input type="text" name="lat" style="display:none">
+      <input type="text" name="lon" style="display:none">
+      <input type="location" name="optLoc" placeholder="Can't find you! City?" style="display:none" id="optLoc"><br />
+      <input type="submit" action="Submit" value="Submit">
+    </form>
+  </div>
+  <% include ../static/assets/includes/footer.ejs %>
+</body>
+</html>

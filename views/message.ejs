@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>ENTOURAGE</title>
+<link rel="stylesheet" type="text/css" href="/assets/css/landing.css">
+</head>
+<body>
+  <div id="container">
+    <div id="form">
+      <div id="sprite">
+          <a href="/"><img src="/assets/images/E.svg" width="200" height="200" id="candle"></a>
+        </div>
+      <h2><%=data.header%></h2>
+      <span id="message"><%=data.message%><%if (data.link){%>You can now <a href="<%=data.link%>">login</a>.
+      <%}%></span>
+    </div>
+  </div>
+</body>
+</html>

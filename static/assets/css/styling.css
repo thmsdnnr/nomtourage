@@ -1,0 +1,53 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+}
+
+nav {
+  text-align: center;
+}
+
+footer {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6em;
+  text-align: center;
+}
+
+div#form {
+  padding: 10px;
+  text-align: center;
+}
+
+input {
+  padding: 5px;
+  width: 250px;
+  height: 50px;
+  font-size: 1.3em;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid orange;
+}
+
+input[type=submit] {
+  display: none;
+}
+
+button#submit {
+  padding: 20px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1.2em;
+  width: 250px;
+  letter-spacing: 0.3em;
+  outline: none;
+}
