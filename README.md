@@ -3,7 +3,9 @@
 
 TODO
 [ ] batch up Db calls so they only fire when you leave the page. Meanwhile just store in an Object
+ -> Some strangeness occasionally with add/remove
 [ ] Other things?!
+[ ] Popular Places don't seem to work right!
 
 [ ] Material Design styling
 [ ] Focus app -> not just bars, any kind of search
