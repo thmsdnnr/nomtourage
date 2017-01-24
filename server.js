@@ -14,7 +14,7 @@ app.use(session({
     url: process.env.PROD_DB||'mongodb://localhost:27017/ndlrn',
     ttl: 14 * 24 * 60 * 60 // = 14 days. Default
   }), //https://github.com/jdesboeufs/connect-mongo
-  secret: process.env.SESSION_SECRET | 'DREAMSBEDREAMS',
+  secret: process.env.SESSION_SECRET || 'DREAMSBEDREAMS',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false, maxAge:(60*60*1000) } //1 hour max age -> DOESN'T WORK WITH SECURE:TRUE ON NON-HTTPS LOCALHOST
