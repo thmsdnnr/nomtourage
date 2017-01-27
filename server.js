@@ -5,6 +5,7 @@ const cookieParser=require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const Db=require('./nightlifeDb.js');
+const sha1=require('sha1');
 let Yelp=require('yelp');
 
 const app=express();
@@ -144,20 +145,20 @@ app.post('/login', function(req,res) {
       Db.fetchUser({'username':inputUser},function(data){
         console.log(data+"data");
         if(data) {
-          if ((data[0].username===inputUser)&&(data[0].password===inputPwd)) //it's a match
+          if ((data[0].username===inputUser)&&(data[0].password===sha1(inputPwd))) //it's a match
           {
             req.session.user=inputUser;
             req.session.lastSearch={};
             Db.fetchLastUserSearch({username:req.session.user}, function(uData){
               let lastS=uData[0].lastSearch;
               console.log();
-              console.log('astsearch from login post');
+              console.log('Last search from login post');
               if (lastS) { //it's an OBJECT so we have to deep copy
                 console.log(lastS);
                 Object.keys(lastS).forEach((k)=>req.session.lastSearch[k]=lastS[k]);
                 console.log(req.session.lastSearch);
               }
-              res.redirect(307,'/s');
+              res.redirect(307,'/s'); //TODO prettier way of redirecting to a POST route
             });
           }
           else {
@@ -180,7 +181,7 @@ app.post('/register', function(req,res) {
   Db.findUser({'username':inputUser},function(data){
     if (!data[0]) {
       if (inputPwd!=="") {
-        Db.saveUser({'username':inputUser,'password':inputPwd},function(){
+        Db.saveUser({'username':inputUser,'password':sha1(inputPwd)},function(){
           req.session.user=inputUser;
           console.log(req.session.user+"sessionuser");
           let payload={header:'Welcome to Votive!', message:`Welcome, ${inputUser}.`,link:'/login'};
@@ -222,16 +223,6 @@ app.post('/update', function(req,res) {
 
 app.post('/', function(req,res) {
   console.log(req.body);
-/*  if(req.body) {
-    yelp.search({term: 'beer', ll:`${req.body.lat},${req.body.lon}`, radius_filter:5000})
-        .then(function(data) {
-          console.log(data);
-          res.send(data);
-    })
-    .catch(function(err) {
-      console.dir(err);
-    });
-  }*/
   });
 
 app.get('*', function(req,res) {
