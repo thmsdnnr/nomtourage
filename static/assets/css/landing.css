@@ -46,3 +46,8 @@ span#message {
 div#sprite {
   margin: 5px;
 }
+
+div#form h2 {
+  font-family: 'Courier New', monospace;
+  font-size: 2em;
+}
